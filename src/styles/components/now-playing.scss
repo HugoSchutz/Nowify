@@ -19,6 +19,8 @@
     padding: var(--spacing-m);
     text-align: center;
     width: 100%;
+    transform-origin: 50% 50%;
+    will-change: transform;
   }
 
   &__image {
@@ -26,8 +28,6 @@
     height: auto;
     max-width: 60vw;
     width: 100%;
-    transform-origin: 50% 50%;
-    will-change: transform;
   }
 
   &__details {
@@ -53,7 +53,7 @@
     align-items: center;
     justify-content: center;
     /* Spin the album cover while active */
-    .now-playing__image {
+    .now-playing__cover {
       animation: nowify-spin 20s linear infinite;
     }
   }
@@ -87,7 +87,7 @@
 
 /* Respect users' motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .now-playing--active .now-playing__image {
+  .now-playing--active .now-playing__cover {
     animation: none !important;
     will-change: auto;
   }
