@@ -29,8 +29,20 @@
     max-width: 60vw;
     width: 100%;
     border-radius: 50%;
-    background: radial-gradient(circle at center, transparent 3.6%, transparent 3.6%, white 3.6%);
-    background-clip: padding-box;
+  }
+
+  &__cover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7.2%;
+    aspect-ratio: 1;
+    background-color: var(--colour-background-now-playing);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
   }
 
   &__details {
