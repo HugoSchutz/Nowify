@@ -19,6 +19,8 @@
     text-align: center;
     width: 480px;
     height: 480px;
+    min-width: 480px;
+    min-height: 480px;
     transform-origin: 50% 50%;
     will-change: transform;
     display: inline-block;

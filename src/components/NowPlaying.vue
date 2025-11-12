@@ -18,7 +18,7 @@
       </div>
     </div>
     <div v-else class="now-playing" :class="getNowPlayingClass()">
-      <h1 class="now-playing__idle-heading">No music is playing 😔</h1>
+      <h1 class="now-playing__idle-heading">No song is playing 😔</h1>
     </div>
   </div>
 </template>
@@ -246,7 +246,7 @@ export default {
       this.$emit('spotifyTrackUpdated', this.playerData)
 
       this.$nextTick(() => {
-        this.getAlbumColours()
+        this.setAppColours()
       })
     }
   }
