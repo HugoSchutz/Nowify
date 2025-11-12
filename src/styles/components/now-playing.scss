@@ -29,6 +29,8 @@
     max-width: 60vw;
     width: 100%;
     border-radius: 50%;
+    background: radial-gradient(circle at center, transparent 3.6%, transparent 3.6%, white 3.6%);
+    background-clip: padding-box;
   }
 
   &__details {
