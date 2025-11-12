@@ -42,7 +42,7 @@ export default {
       pollPlaying: '',
       playerResponse: {},
       playerData: this.getEmptyPlayer(),
-      colourPalette: '',
+      colourPalette: { text: '#FFFFFF', background: '#000000' },
       swatches: []
     }
   },
@@ -129,29 +129,6 @@ export default {
     },
 
     /**
-     * Get the colour palette from the album cover.
-     */
-    getAlbumColours() {
-      /**
-       * No image (rare).
-       */
-      if (!this.player.trackAlbum?.image) {
-        return
-      }
-
-      /**
-       * Run node-vibrant to get colours.
-       */
-      Vibrant.from(this.player.trackAlbum.image)
-        .quality(1)
-        .clearFilters()
-        .getPalette()
-        .then(palette => {
-          this.handleAlbumPalette(palette)
-        })
-    },
-
-    /**
      * Return a formatted empty object for an idle player.
      * @return {Object}
      */
@@ -235,33 +212,6 @@ export default {
           image: this.playerResponse.item.album.images[0].url
         }
       }
-    },
-
-    /**
-     * Handle newly stored colour palette:
-     * - Map data to readable format
-     * - Get and store random colour combination.
-     */
-    handleAlbumPalette(palette) {
-      let albumColours = Object.keys(palette)
-        .filter(item => {
-          return item === null ? null : item
-        })
-        .map(colour => {
-          return {
-            text: palette[colour].getTitleTextColor(),
-            background: palette[colour].getHex()
-          }
-        })
-
-      this.swatches = albumColours
-
-      this.colourPalette =
-        albumColours[Math.floor(Math.random() * albumColours.length)]
-
-      this.$nextTick(() => {
-        this.setAppColours()
-      })
     },
 
     /**
