@@ -17,10 +17,8 @@
     position: relative;
     padding: var(--spacing-m);
     text-align: center;
-    /* Make the cover a square whose diameter is the viewport height when possible.
-       Use min(100vh, 100vw) so it doesn't overflow on narrow viewports. */
-    width: min(100vh, 100vw);
-    height: min(100vh, 100vw);
+    width: 480px;
+    height: 480px;
     max-width: 100%;
     transform-origin: 50% 50%;
     will-change: transform;
